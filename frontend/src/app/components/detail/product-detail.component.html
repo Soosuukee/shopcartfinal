@@ -1,0 +1,78 @@
+<div class="container mx-auto px-4 py-8">
+  <div *ngIf="isLoading" class="text-center">Chargement...</div>
+  <div *ngIf="hasError" class="text-center text-red-600">
+    Produit non trouvé.
+  </div>
+
+  <div *ngIf="!isLoading && !hasError" class="flex flex-col md:flex-row gap-8">
+    <div class="md:w-1/2">
+      <img
+        [src]="imageBaseUrl + '/' + product.image"
+        [alt]="product.name"
+        (error)="onImgError($event)"
+        class="w-full h-96 object-contain"
+      />
+    </div>
+    <div class="md:w-1/2">
+      <h2 class="text-2xl font-bold mb-4">{{ product.name }}</h2>
+      <p class="text-gray-600 mb-4">{{ product.short_description }}</p>
+
+      <div class="mb-4">
+        <span class="text-lg font-semibold">Prix :</span>
+        <span
+          *ngIf="product.promotion_percentage > 0"
+          class="text-red-500 line-through mr-2"
+        >
+          {{ product.price | currency : "EUR" : "symbol" }}
+        </span>
+        <span class="text-green-600 font-bold">
+          {{ finalPrice | currency : "EUR" : "symbol" }}
+        </span>
+      </div>
+
+      <div class="mb-4">
+        <span class="text-lg font-semibold">Catégorie :</span>
+        {{ product.category.name }}
+      </div>
+
+      <div class="mb-4">
+        <span class="text-lg font-semibold">Couleurs disponibles :</span>
+        <ul class="list-disc pl-5">
+          <li *ngFor="let color of product.colors">{{ color.name }}</li>
+        </ul>
+      </div>
+
+      <div class="mb-4">
+        <span class="text-lg font-semibold">Matériaux :</span>
+        <ul class="list-disc pl-5">
+          <li *ngFor="let material of product.materials">
+            {{ material.name }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="mt-6">
+        <button
+          (click)="addToCart()"
+          class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+        >
+          Ajouter au panier
+        </button>
+      </div>
+      <div class="flex flex-col md:flex-row justify-between gap-4 mb-6">
+        <button
+          (click)="goToHome()"
+          class="bg-white text-black border border-black px-4 py-2 rounded hover:bg-black hover:text-white transition"
+        >
+          Continuer mes achats
+        </button>
+        <button
+          (click)="goToCart()"
+          class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-white hover:text-black hover:border hover:border-black transition"
+        >
+          Accéder au panier
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<nav class="bg-gray-800 text-white p-4">
+  <ul class="flex space-x-6 justify-center">
+    <li>
+      <a
+        routerLink="/"
+        routerLinkActive="font-bold"
+        class="hover:text-gray-300 transition"
+      >
+        Accueil
+      </a>
+    </li>
+    <li>
+      <a
+        routerLink="/cart"
+        routerLinkActive="font-bold"
+        class="relative hover:text-gray-300 transition"
+      >
+        Panier
+        <span
+          *ngIf="totalItems() > 0"
+          class="absolute -top-2 -right-4 bg-red-600 text-white rounded-full px-2 py-1 text-xs"
+        >
+          {{ totalItems() }}
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>

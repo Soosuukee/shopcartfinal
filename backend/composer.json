@@ -1,0 +1,21 @@
+{
+    "name": "hb/shopcart",
+    "description": "site achat accessoire",
+    "require": {
+        "vlucas/phpdotenv": "^5.6",
+        "respect/validation": "^2.4",
+        "symfony/var-dumper": "^7.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Soosuuke\\Shopcart\\": "src/",
+            "Soosuuke\\Shopcart\\Fixtures\\": "fixtures/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Soosuuke",
+            "email": "soosuuke.dev@gmail.com"
+        }
+    ]
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Documentation API – Shopcart</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      h1 {
+        color: #222;
+      }
+      section {
+        background: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+      }
+      code {
+        background: #eee;
+        padding: 2px 4px;
+        border-radius: 4px;
+      }
+      .method {
+        font-weight: bold;
+        color: #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>📦 Documentation API – Shopcart</h1>
+
+    <section>
+      <h2>GET <span class="method">/products</span></h2>
+      <p>Récupère tous les produits.</p>
+    </section>
+
+    <section>
+      <h2>GET <span class="method">/products/&lt;id&gt;</span></h2>
+      <p>Récupère un produit par son identifiant.</p>
+      <p><code>Ex: /products/3</code></p>
+    </section>
+
+    <section>
+      <h2>GET <span class="method">/products/search?q=...</span></h2>
+      <p>
+        Recherche un produit par mot-clé dans le nom ou la description courte.
+      </p>
+    </section>
+
+    <section>
+      <h2>GET <span class="method">/products/promoted</span></h2>
+      <p>Liste les produits en promotion.</p>
+    </section>
+
+    <section>
+      <h2>GET <span class="method">/products/filter</span></h2>
+      <p>Filtre les produits selon plusieurs critères :</p>
+      <ul>
+        <li><code>category_id</code> : ID de la catégorie</li>
+        <li><code>color_id</code> : ID de la couleur</li>
+        <li><code>material_id</code> : ID du matériau</li>
+        <li><code>q</code> : mot-clé</li>
+        <li>
+          <code>order_by</code> : nom du champ pour trier (ex:
+          <code>price</code>)
+        </li>
+        <li>
+          <code>order_dir</code> : direction du tri (<code>asc</code> ou
+          <code>desc</code>)
+        </li>
+      </ul>
+      <p>
+        <code
+          >Ex:
+          /products/filter?category_id=1&color_id=2&order_by=price&order_dir=asc</code
+        >
+      </p>
+    </section>
+
+    <section>
+      <h2>GET <span class="method">/categories</span></h2>
+      <p>Récupère la liste des catégories disponibles.</p>
+    </section>
+
+    <section>
+      <h2>GET <span class="method">/colors</span></h2>
+      <p>Récupère la liste des couleurs disponibles.</p>
+    </section>
+
+    <section>
+      <h2>GET <span class="method">/materials</span></h2>
+      <p>Récupère la liste des matériaux disponibles.</p>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<div class="container mx-auto px-4 py-8">
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-2xl font-bold">Nos produits</h2>
+    <a
+      routerLink="/cart"
+      class="relative bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+    >
+      Voir le panier
+      <span
+        *ngIf="totalItems() > 0"
+        class="absolute -top-2 -right-2 bg-red-600 text-white rounded-full px-2 py-1 text-xs"
+      >
+        {{ totalItems() }}
+      </span>
+    </a>
+  </div>
+
+  <app-filter-bar (filterChange)="onFiltersChanged($event)"></app-filter-bar>
+  <app-product-list [filters]="filters"></app-product-list>
+</div>

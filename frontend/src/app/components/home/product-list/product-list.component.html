@@ -1,0 +1,12 @@
+<div
+  *ngIf="products().length === 0"
+  class="text-center text-gray-500 col-span-full"
+>
+  Aucun produit trouvé pour vos critères.
+</div>
+
+<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  @for (product of products(); track product.id) {
+  <app-product-card [product]="product" />
+  }
+</div>
