@@ -18,7 +18,7 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__); // adapte le chemin si besoin
 $dotenv->load();
 
 // 🔐 CORS HEADERS pour Angular (localhost:4200)
-header('Access-Control-Allow-Origin: http://localhost:4200');
+header('Access-Control-Allow-Origin: http://104.155.43.118');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
